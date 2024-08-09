@@ -15,6 +15,18 @@ builder.Services.AddDbContext<CrudBlazorContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+// Enable Cors.
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("myAllowSpecificOrigins",
+        builder =>
+        {
+            builder.AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+        });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -23,6 +35,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("myAllowSpecificOrigins");
 
 app.UseAuthorization();
 
