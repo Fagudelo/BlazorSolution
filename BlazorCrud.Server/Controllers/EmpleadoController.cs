@@ -129,7 +129,7 @@ namespace BlazorCrud.Server.Controllers
         }
 
         [HttpPut]
-        [Route("Editar")]
+        [Route("Editar/{id}")]
         public async Task<IActionResult> Editar(EmpleadoDTO empleado, int id)
         {
             var responseApi = new ResponseApi<int>();
@@ -169,7 +169,7 @@ namespace BlazorCrud.Server.Controllers
         }
 
         [HttpDelete]
-        [Route("Eliminar")]
+        [Route("Eliminar{id}")]
         public async Task<IActionResult> Eliminar(int id)
         {
             var responseApi = new ResponseApi<int>();
