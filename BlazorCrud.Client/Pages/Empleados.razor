@@ -36,9 +36,9 @@
             {
                 <tr>
                     <td>@item.NombreCompleto</td>
-                    <td>@item.Departamento</td>
+                    <td>@item.Departamento!.Nombre</td>
                     <td>@item.Sueldo</td>
-                    <td>@item.FechaContrato</td>
+                    <td>@item.FechaContrato.ToString("dd/MM/yyyy")</td>
                     <td>
                         <a class="btn btn-primary btn-sm" href="empleado/@item.IdEmpleado">
                             <i class="oi oi-pencil"></i>
